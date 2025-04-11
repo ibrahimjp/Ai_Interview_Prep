@@ -10,6 +10,13 @@ import { Button } from "../../../@/components/ui/button";
 import { Input } from "../../../@/components/ui/input";
 import { Textarea } from "../../../@/components/ui/textarea";
 import { chatSession ,generateQuestions} from "../../../utils/GeminiAiModel";
+import { db } from "../../../utils/db";
+import { MockInterview } from "../../../utils/schema";
+import {v4 as uuid} from "uuid"
+import { useUser } from "@clerk/nextjs";
+import moment from 'moment';
+
+
 
 const AddNewInterview = () => {
   const [openDialog, setOpenDialog] = useState(false);
@@ -18,7 +25,9 @@ const AddNewInterview = () => {
   const [experience, setExperience] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [jsonResponse,setJsonResponse] = useState([]);
 
+  const user = useUser().user;
   const onSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -33,20 +42,44 @@ const AddNewInterview = () => {
           "type": "Frontend"
         }
       ]`;
+      const email = user?.primaryEmailAddress?.emailAddress 
   
       const responseText = await generateQuestions(prompt);
 
       try {
+        console.log("Email:", email);
+        if (!email) {
+          setError("Please sign in to save interviews");
+          return;
+        }
+    
         // Clean response and parse JSON
-        const cleanJson = responseText.replace(/```json|```/g, "").trim();
-        console.log("Raw response:", cleanJson);
-        const questions = JSON.parse(cleanJson);
+        const MockJsonResp = responseText.replace(/```json|```/g, "").trim();
+        console.log("Raw response:", MockJsonResp);
+        const questions = JSON.parse(MockJsonResp);
+        setJsonResponse(questions);
         if (!Array.isArray(questions)) {
           throw new Error("Invalid question format");
         }
-        
+
         console.log("Generated questions:", questions);
-        
+         if(MockJsonResp){
+        const resp=await db.insert(MockInterview).values({
+          mockId : uuid(),
+          jobPosition : jobPosition,
+          jobDesc : description,
+          jobExperience : experience,
+          jsonMockResp : MockJsonResp,
+          createdBy : email,
+          createdAt : moment().format("DD-MM-YYYY")
+        }).returning({mockId:MockInterview.mockId})
+
+        if(resp){
+          setOpenDialog(false);
+        }
+      }else{
+        console.log("error")
+      }
       } catch (parseError) {
         console.error("Parsing error:", parseError);
         setError("Received unexpected response format. Please try again.");
