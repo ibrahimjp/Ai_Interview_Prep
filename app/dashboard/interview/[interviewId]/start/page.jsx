@@ -5,12 +5,13 @@ import { eq } from 'drizzle-orm';
 import React, { useCallback, useEffect, useState } from 'react';
 import { use } from 'react'; 
 import QuestionSection from './_components/QuestionSection';
-
+import RecordAnsSection from './_components/RecordAnsSection';
 const StartInterview = ({ params }) => {
   const { interviewId } = use(params); 
   const [interviewDetails, setInterviewDetails] = useState();
   const [mockInterviewQuestion, setMockInterviewQuestion] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [activeQuestion, setActiveQuestion] = useState(0);
 
   const GenerateInterviewDetails = useCallback(async () => {
     try {
@@ -29,19 +30,17 @@ const StartInterview = ({ params }) => {
   }, [interviewId]);
 
   useEffect(() => {
-    console.log("Interview ID:", interviewId);
     GenerateInterviewDetails();
   }, [GenerateInterviewDetails]);
   
   useEffect(() => {
-    console.log("Fetched Interview Details:", interviewDetails);
-    console.log("Questions to Display:", mockInterviewQuestion);
   }, [interviewDetails, mockInterviewQuestion]);
 
   return (
     <div>
-      <div className='grid grid-cols-1 md:grid-cols-2'>
-        <QuestionSection mockInterviewQuestion={mockInterviewQuestion} />
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
+        <QuestionSection activeQuestion={activeQuestion} mockInterviewQuestion={mockInterviewQuestion} />
+        <RecordAnsSection />
       </div>
     </div>
   );
