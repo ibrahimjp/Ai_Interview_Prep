@@ -1,8 +1,8 @@
 import { Lightbulb, Volume2, VolumeX } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
 
-const QuestionSection = ({ mockInterviewQuestion }) => {
-  const [activeQuestion, setActiveQuestion] = useState(0);
+const QuestionSection = ({ mockInterviewQuestion,activeQuestion }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [currentSpeech, setCurrentSpeech] = useState(null);
 
@@ -69,7 +69,7 @@ const QuestionSection = ({ mockInterviewQuestion }) => {
         {mockInterviewQuestion.map((question, index) => (
           <button
             key={index}
-            onClick={() => setActiveQuestion(index)}
+            onClick={() => setActiveIndex(index)}
             className={`p-2 rounded-full text-xs md:text-sm text-center cursor-pointer 
               ${activeQuestion === index ? 'bg-purple-900 text-white' : 'bg-secondary'}`}
           >

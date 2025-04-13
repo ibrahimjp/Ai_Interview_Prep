@@ -15,7 +15,7 @@ import { MockInterview } from "../../../utils/schema";
 import {v4 as uuid} from "uuid"
 import { useUser } from "@clerk/nextjs";
 import moment from 'moment';
-import { useRouter } from "next/router";
+import { useRouter } from 'next/navigation';  
 
 
 
@@ -77,6 +77,7 @@ const AddNewInterview = () => {
 
         if(resp){
           setOpenDialog(false);
+          console.log("Navigating to interview:", resp[0].mockId);
           router.push(`/dashboard/interview/${resp[0].mockId}`)
         }
       }else{
