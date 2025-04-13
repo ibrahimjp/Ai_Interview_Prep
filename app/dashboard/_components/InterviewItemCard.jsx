@@ -26,9 +26,9 @@ const InterviewItemCard = ({ interview }) => {
       <h2 className='font-bold text-primary'>{interview?.jobPosition}</h2>
       <h2 className='text-sm text-gray-600'>{interview?.jobExperience} Years Of Experience</h2>
       <h2 className='text-xs text-gray-400'>Created At: {interview?.createdAt}</h2>
-      <div className='flex justify-between mt-2 gap-5'>
+      <div className='flex justify-between mt-2 '>
         <Button 
-          className='w-full' 
+          className='w-[50%] mr-1 border-amber-900' 
           size='sm' 
           variant='outline'
           onClick={onFeedbackParse}
@@ -36,7 +36,7 @@ const InterviewItemCard = ({ interview }) => {
           Feedback
         </Button>
         <Button 
-          className='w-full' 
+          className='w-[50%]' 
           size='sm'
           onClick={onStart}
         >
