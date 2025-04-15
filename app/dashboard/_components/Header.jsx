@@ -3,7 +3,9 @@ import React from "react";
 import { Image } from "lucide-react";
 import { UserButton } from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
-
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+gsap.registerPlugin(useGSAP);
 const Header = () => {
   const path = usePathname(); 
   

@@ -121,6 +121,17 @@
   }
 }
 
-.bg-black{
-  background-color: #111;
+.elastic-container {
+  width: 100%;
+  height: 200px;
+}
+svg {
+  width: 100%;
+  height: 100%;
+}
+path {
+  stroke: #fff;
+  stroke-width: 3;
+  fill: transparent;
+  stroke-linecap: round;
 }
