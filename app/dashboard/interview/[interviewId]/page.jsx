@@ -52,7 +52,7 @@ const Interview = (props) => {
   }
 
   return (
-    <div className="my-10">
+    <div className="my-10 ">
       <h2 className="font-bold text-2xl">Let's Get Started</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {/* Left Side */}
@@ -105,7 +105,7 @@ const Interview = (props) => {
               />
               <Button
                 variant="ghost"
-                className="ml-45 bg-black text-white"
+                className="ml-45 bg-white text-purple-800"
                 onClick={() => setWebCamEnable(false)}
               >
                 Disable Web Cam And Microphone
@@ -114,10 +114,9 @@ const Interview = (props) => {
             
           ) : (
             <div className="flex flex-col items-center">
-              <WebcamIcon className="h-78 p-20 rounded-lg border my-7 w-full bg-secondary" />
+              <WebcamIcon className="h-78 p-20 rounded-lg border my-7 w-full " />
               <Button
-                variant="ghost"
-                className="bg-purple-800 text-white"
+                className="bg-purple-800 text-white hover:bg-purple-500"
                 onClick={() => setWebCamEnable(true)}
               >
                 Enable Web Cam And Microphone
@@ -130,7 +129,7 @@ const Interview = (props) => {
       {/* Start Interview Button */}
       <div className="flex justify-center items-end mt-6">
         <Link href={`/dashboard/interview/${params.interviewId}/start`}>
-          <Button className="">Start Interview</Button>
+          <Button className="bg-gray-800 hover:text-black hover:bg-white">Start Interview</Button>
         </Link>
       </div>
     </div>

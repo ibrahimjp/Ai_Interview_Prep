@@ -41,12 +41,12 @@ const Feedback = ({ params }) => {
     <div className="p-10">
 
       {feedbackList?.length === 0 ? (
-        <h2 className="font-bold text-xl text-gray-500">No Feedback Found</h2>
+        <h2 className="font-bold text-xl text-gray-300">No Feedback Found</h2>
       ) : (
         <>
               <h2 className="text-3xl font-bold text-green-500">Congratulations!</h2>
               <h2 className="text-2xl font-bold">Here is your interview feedback</h2>
-          <h2 className="text-primary text-lg my-3">
+          <h2 className="text-lg my-3 text-gray-300" >
             Your overall interview rating: <strong>7/10</strong>
           </h2>
           <h2 className="text-sm text-gray-500">
@@ -55,7 +55,7 @@ const Feedback = ({ params }) => {
 
           {feedbackList.map((item, index) => (
             <Collapsible key={index} className="mt-7">
-              <CollapsibleTrigger className="p-2 bg-secondary rounded-lg flex justify-between my-2 text-left gap-7 w-full">
+              <CollapsibleTrigger className="p-2 rounded-lg flex justify-between my-2 text-left gap-7 w-full text-white bg-[#222121]">
                 {item.question}
                 <ChevronsUpDown className="h-5 w-5" />
               </CollapsibleTrigger>

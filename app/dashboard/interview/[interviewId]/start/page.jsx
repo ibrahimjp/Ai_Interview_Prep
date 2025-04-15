@@ -42,13 +42,13 @@ const StartInterview = ({ params }) => {
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 ">
         <QuestionSection
           activeQuestion={activeQuestion}
           mockInterviewQuestion={mockInterviewQuestion}
         />
-              <div className=" justify-end gap-6 m-5">
-        {activeQuestion > 0 && <Button className="mr-3" onClick={() => setActiveQuestion(activeQuestion - 1)}>Previous Question</Button>}
+              <div className=" justify-end gap-6 m-10">
+        {activeQuestion > 0 && <Button className="mr-3 text-white bg-gray-800 hover:bg-gray-300 hover:text-black" onClick={() => setActiveQuestion(activeQuestion - 1)}>Previous Question</Button>}
         {activeQuestion != mockInterviewQuestion.length - 1 && (
           <Button className="mr-3 bg-purple-800 hover:bg-purple-300" onClick={() => setActiveQuestion(activeQuestion + 1)}>Next Question</Button>
         )}

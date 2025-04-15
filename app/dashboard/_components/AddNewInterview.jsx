@@ -98,33 +98,33 @@ const AddNewInterview = () => {
   return (
     <div>
       <div
-        className="p-10 border rounded-lg bg-secondary hover:scale-105 hover:shadow-md cursor-pointer"
+        className="p-10 border rounded-lg  hover:scale-105  hover:shadow-amber-50 cursor-pointer"
         onClick={() => setOpenDialog(true)}
       >
         <h2 className="text-lg text-center">+ Add New</h2>
       </div>
 
-      <Dialog open={openDialog} onOpenChange={setOpenDialog}>
-        <DialogContent className="max-w-2xl">
+      <Dialog  open={openDialog} onOpenChange={setOpenDialog}>
+        <DialogContent className="max-w-2xl bg-[#1e1d1d]">
           <DialogHeader>
-            <DialogTitle className="font-bold text-2xl">
+            <DialogTitle className="font-bold text-2xl text-white">
               Tell Us More About Your Job
             </DialogTitle>
           </DialogHeader>
           <form onSubmit={onSubmit}>
-            <div className="space-y-4">
-              <h3 className="text-lg font-medium">
+            <div className="space-y-4 text-white">
+              <h3 className="text-lg font-medium ">
                 Add Details About Your Job Position/Role, Job Description And
                 Years Of Experience
               </h3>
 
               {error && (
-                <div className="text-red-500 text-sm p-2 bg-red-50 rounded">
+                <div className="text-red-500 text-sm p-2 bg-red-50 rounded ">
                   {error}
                 </div>
               )}
 
-              <div className="space-y-3 text-gray-600">
+              <div className="space-y-3 text-[#cec2c2]">
                 <label>Job Role / Job Position</label>
                 <Input
                   placeholder="Ex. Full Stack Developer"
@@ -134,7 +134,8 @@ const AddNewInterview = () => {
                 />
               </div>
 
-              <div className="space-y-3 text-gray-600">
+              <div className="space-y-3 text-[#cec2c2]
+              " >
                 <label>Job Description / Tech Stack (In Short)</label>
                 <Textarea
                   placeholder="Ex. React, Node, Next, MongoDB, Sql, etc...."
@@ -144,7 +145,7 @@ const AddNewInterview = () => {
                 />
               </div>
 
-              <div className="space-y-3 text-gray-600">
+              <div className="space-y-3 text-[#cec2c2]">
                 <label>Years Of Experience</label>
                 <Input
                   placeholder="Ex. 5"

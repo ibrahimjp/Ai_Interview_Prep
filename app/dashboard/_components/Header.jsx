@@ -8,8 +8,8 @@ const Header = () => {
   const path = usePathname(); 
   
   return (
-    <div className="flex p-4 items-center justify-between bg-secondary shadow-md">
-      <img src={"/logo.svg"} width={100} height={100} alt="logo" />
+    <div className="flex p-4 items-center justify-between shadow-md bg-[#2b2a2a]">
+      <img src={"/logo.png"} width={50} height={50} alt="logo"/>
       <ul className="hidden md:flex gap-6">
         <li className={`hover:text-purple-500 hover:font-bold transition-all cursor-pointer ${path === "/dashboard" && "font-bold text-purple-800"}`}>
           DashBoard

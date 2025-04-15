@@ -166,7 +166,7 @@ const RecordAnsSection = ({
   };
 
   return (
-    <div className="flex items-center justify-center flex-col">
+    <div className="flex items-center justify-center flex-col ">
       {/* Webcam Section */}
       <div className="relative flex flex-col justify-center items-center bg-gray-500 rounded-lg mt-20 p-5 w-full max-w-2xl">
         {cameraError ? (
@@ -204,7 +204,7 @@ const RecordAnsSection = ({
           disabled={loading || !speechSupported}
           variant={isRecording ? "destructive" : "outline"}
           onClick={handleRecording}
-          className="flex items-center gap-2"
+          className="flex items-center gap-2 text-white bg-gray-800 hover:bg-gray-300 hover:text-black"
         >
           <Mic className="h-4 w-4" />
           {isRecording ? (
