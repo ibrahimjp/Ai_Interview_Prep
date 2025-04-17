@@ -16,8 +16,8 @@ import {v4 as uuid} from "uuid"
 import { useUser } from "@clerk/nextjs";
 import moment from 'moment';
 import { useRouter } from 'next/navigation';  
-
-
+import "../MyButton.css"
+import "../StartButton.css"
 
 const AddNewInterview = () => {
   const [openDialog, setOpenDialog] = useState(false);
@@ -96,7 +96,7 @@ const AddNewInterview = () => {
   };
 
   return (
-    <div>
+    <div className="container2 ">
       <div
         className="p-10 border rounded-lg  hover:scale-105  hover:shadow-amber-50 cursor-pointer"
         onClick={() => setOpenDialog(true)}
@@ -104,8 +104,8 @@ const AddNewInterview = () => {
         <h2 className="text-lg text-center">+ Add New</h2>
       </div>
 
-      <Dialog  open={openDialog} onOpenChange={setOpenDialog}>
-        <DialogContent className="max-w-2xl bg-[#1e1d1d]">
+      <Dialog open={openDialog} onOpenChange={setOpenDialog}>
+        <DialogContent className="fixed top-100 max-w-2xl bg-[#1e1d1d]">
           <DialogHeader>
             <DialogTitle className="font-bold text-2xl text-white">
               Tell Us More About Your Job
@@ -159,6 +159,7 @@ const AddNewInterview = () => {
 
             <div className="flex justify-end gap-5 mt-6">
               <Button
+              className="button"
                 type="button"
                 variant="ghost"
                 onClick={() => setOpenDialog(false)}
@@ -166,7 +167,7 @@ const AddNewInterview = () => {
               >
                 Cancel
               </Button>
-              <Button type="submit" disabled={loading}>
+              <Button className="ui-btn" type="submit" disabled={loading}>
                 {loading ? (
                   <>
                     <svg
@@ -192,7 +193,7 @@ const AddNewInterview = () => {
                     Generating...
                   </>
                 ) : (
-                  "Start"
+                  <span>Start</span>
                 )}
               </Button>
             </div>

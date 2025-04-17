@@ -9,7 +9,7 @@ import RecordAnsSection from "./_components/RecordAnsSection";
 import { Button } from "../../../../../@/components/ui/button";
 import { Link } from "lucide-react";
 import { motion } from "framer-motion";
-
+import "../../../Pattern.css";
 const StartInterview = ({ params }) => {
   const { interviewId } = useParams();
   const [interviewDetails, setInterviewDetails] = useState();
@@ -47,8 +47,8 @@ const StartInterview = ({ params }) => {
           activeQuestion={activeQuestion}
           mockInterviewQuestion={mockInterviewQuestion}
         />
-              <div className=" justify-end gap-6 m-10">
-        {activeQuestion > 0 && <Button className="mr-3 text-white bg-gray-800 hover:bg-gray-300 hover:text-black" onClick={() => setActiveQuestion(activeQuestion - 1)}>Previous Question</Button>}
+              <div className=" justify-end gap-6 m-10 ">
+        {activeQuestion > 0 && <Button className="mr-3 text-white bg-gray-800 hover:bg-gray-300 hover:text-black " onClick={() => setActiveQuestion(activeQuestion - 1)}>Previous Question</Button>}
         {activeQuestion != mockInterviewQuestion.length - 1 && (
           <Button className="mr-3 bg-purple-800 hover:bg-purple-300" onClick={() => setActiveQuestion(activeQuestion + 1)}>Next Question</Button>
         )}

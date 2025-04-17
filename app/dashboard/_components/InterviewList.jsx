@@ -5,7 +5,7 @@ import { useUser } from '@clerk/nextjs'
 import { desc, eq } from 'drizzle-orm';
 import React, { useEffect, useState } from 'react'
 import InterviewItemCard from './InterviewItemCard';
-
+import "../MyButton.css";
 const InterviewList = () => {
   const {user}=useUser();
   const [interviewList,setInterviewList]=useState([]);

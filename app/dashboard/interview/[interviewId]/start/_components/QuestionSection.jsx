@@ -64,7 +64,7 @@ const QuestionSection = ({ mockInterviewQuestion,activeQuestion }) => {
   }
 
   return (
-    <div className='p-5 border rounded-lg text-black mt-10'>
+    <div className='p-5 border rounded-lg text-black mt-10 container'>
       <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-4'>
         {mockInterviewQuestion.map((question, index) => (
           <button
