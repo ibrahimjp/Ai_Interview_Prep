@@ -44,7 +44,7 @@ An intelligent AI-powered platform to simulate real-world technical interviews w
 
 ![Home Page](./public/websiteImage.png)
 
-🔗 **Live Demo:** [Jamila Food](https://jamilafood.vercel.app/)
+🔗 **Live Demo:** [Interview_prep](https://aiinterviewprep-delta.vercel.app/)
 
 ---
 
